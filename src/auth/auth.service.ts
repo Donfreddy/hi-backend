@@ -48,7 +48,9 @@ export class AuthService {
     try {
       return await this.generateToken(foundUser);
     } catch (error) {
-      throw new InternalServerErrorException();
+      console.log(error);
+      
+      throw new InternalServerErrorException('Something went wrong');
     }
   }
 

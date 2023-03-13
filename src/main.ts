@@ -11,6 +11,9 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
 
+  // use global prefix
+  app.setGlobalPrefix('/api');
+
   // get config
   const configService = app.get(ConfigService);
 

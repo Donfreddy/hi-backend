@@ -37,8 +37,9 @@ class ConfigService {
 
   public getJWT() {
     return {
-      secretKey: this.getValue('APP_PORT', false) || 'xxxxxx',
-      expiresIn: this.getValue('APP_PORT', false) || '1d',
+      secretKey:
+        this.getValue('JWT_SECRET', false) || 'WelcomeToHouseInnovationGroup',
+      expiresIn: this.getValue('JWT_EXPIRATION', false) || '1d',
     };
   }
 
@@ -66,7 +67,7 @@ class ConfigService {
       database: this.getValue('DB_DATABASE'),
       synchronize: true,
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      logging: ["error"]
+      logging: ['error'],
       // entities: ['**/*.entity{.ts,.js}'],
 
       // migrationsTableName: 'migration',
